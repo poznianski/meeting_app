@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Users } from './components/Users.jsx'
-import { SearchStatus } from './components/SearchStatus.jsx'
 import api from "./api"
 
-export const App=() => {
+export const App = () => {
   const [users, setUsers] = useState(api.users.fetchAll());
   const handleDelete = (userId) => {
     setUsers(users.filter((user) => user._id !== userId));
@@ -21,7 +20,7 @@ export const App=() => {
   }
   return (
     <div>
-      <SearchStatus length={users.length} />
+
       <Users onDelete={handleDelete} onToggleBookMark={handleToggleBookMark} users={users} />
     </div>
   );
